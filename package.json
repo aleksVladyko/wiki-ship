@@ -1,5 +1,6 @@
 {
   "homepage": "https://aleksVladyko.github.io/wiki-ship",
+  "proxy": "https://aleksvladyko.github.io",
   "name": "wiki-ship",
   "private": true,
   "version": "0.0.0",

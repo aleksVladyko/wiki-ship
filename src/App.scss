@@ -1,0 +1,82 @@
+@import 'index.scss';
+
+$galleryHeight: calc(70vh - 80px);
+
+#root {
+  height: 100vh;
+}
+h1,
+h2 {
+  margin: 0;
+  text-align: center;
+}
+.container {
+  display: grid;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 32px;
+  align-items: center;
+  grid-template-rows: auto 1fr;
+  row-gap: 16px;
+  &_selects {
+    display: flex;
+    height: 4vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  max-height: 100%;
+  width: 1280px;
+  &_container {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    height: $galleryHeight;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    flex-wrap: nowrap;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &_item {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+    }
+  }
+}
+@mixin mobile {
+  .gallery {
+    width: 100%;
+    &_container {
+      height: 100%;
+    }
+  }
+  .container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+#root {
+  // Мобильные устройства
+  @media only screen and (max-width: 480px) {
+    @include mobile;
+  }
+
+  // Десктопные устройства
+  @media only screen and (min-width: 1024px) {
+    @include desktop;
+  }
+}

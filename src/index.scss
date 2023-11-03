@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100&display=swap');
+
+$bg-color: #0d1117;
+$bg-color-mobile: rgb(161, 159, 156);
+$bg-gradient: linear-gradient(45deg, #4fc0e2, #494d74);
+$card-color: #3a4350;
+$border-color: #30363d;
+$borderHover-color: #444b53;
+$btn-bg: #21262d;
+
+$text-df: #e5eaee;
+$text-secondary: #8b949e;
+
+$success-color: #2ea043;
+$info-color: #4fc0e2;
+$danger-color: #f85149;
+
+@mixin mobile {
+}
+
+@mixin tablet-landscape {
+  orientation: landscape;
+}
+@mixin tablet-portrait {
+  orientation: portrait;
+}
+
+@mixin desktop {
+  /* Стили для десктопных устройств */
+  /* Например: изменение колонок, выравнивание контента и т.д. */
+}
+@mixin big-desktop {
+  /* Стили для десктопных устройств */
+  /* Например: изменение колонок, выравнивание контента и т.д. */
+}
+
+// Применение миксинов с использованием медиа-запросов
+
+#root {
+  // Мобильные устройства
+  @media only screen and (max-width: 480px) {
+    @include mobile;
+  }
+
+  // Планшеты
+  @media only screen and (min-width: 600px) {
+    @include tablet-portrait();
+  }
+  @media only screen and (min-width: 900px) {
+    @include tablet-landscape();
+  }
+
+  // Десктопные устройства
+  @media only screen and (min-width: 1024px) {
+    @include desktop;
+  }
+  @media only screen and (min-width: 1800px) {
+    @include big-desktop;
+  }
+}
+
+:root {
+  background: $bg-gradient;
+  background-repeat: no-repeat;
+  font:
+    1.25rem/1.2 'Roboto',
+    sans-serif;
+  width: 100%;
+  min-height: 100vh;
+}
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}

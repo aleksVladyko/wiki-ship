@@ -19,11 +19,16 @@ await server.start()
 app.use(
   '/',
   cors<cors.CorsRequest>({
-    origin: ['http://localhost:5173', 'https://studio.apollographql.com','https://aleksvladyko.github.io', 'https://aleksvladyko.github.io/wiki-ship'],
+    origin: [
+      'http://localhost:5173',
+      'https://studio.apollographql.com',
+      'https://aleksvladyko.github.io',
+      'https://aleksvladyko.github.io/wiki-ship',
+    ],
   }),
   express.json(),
   expressMiddleware(server),
 )
-const url = process.env.VITE_SERVER_URL
-await new Promise<void>((resolve) => httpServer.listen({ port: url || 4001 }, resolve))
-console.log(`🚀 Server ready at ${url}`)
+
+await new Promise<void>((resolve) => httpServer.listen({ port: 4000 }, resolve))
+console.log(`🚀 Server ready at http://localhost:4000`)

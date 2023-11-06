@@ -8,7 +8,7 @@ import { shuffleArray } from './helpers/helpers'
 import Select from './components/Select/Select'
 
 type DataShips = {
-  vehicles: Array<ShipItem>
+  getShips: Array<ShipItem>
 }
 
 // const PAGE_SIZE = 10
@@ -33,12 +33,12 @@ function App() {
   // const ships = data?.vehicles.slice(0, limit)
 
   // added a function for shuffling data in random order in the original array
-  const arrayShipsRandom = shuffleArray(data?.vehicles || [])
+  const arrayShipsRandom = shuffleArray(data?.getShips || [])
 
   // Формирование уникальных значений наций, типов и уровней кораблей
-  const nationsSet = new Set(data?.vehicles.map((ship) => ship.nation.title))
-  const typesSet = new Set(data?.vehicles.map((ship) => ship.type.title))
-  const levelsSet = new Set(data?.vehicles.map((ship) => ship.level.toString()))
+  const nationsSet = new Set(data?.getShips.map((ship) => ship.nation.title))
+  const typesSet = new Set(data?.getShips.map((ship) => ship.type.title))
+  const levelsSet = new Set(data?.getShips.map((ship) => ship.level.toString()))
 
   // Преобразование Set обратно в массив для использования в селектах
   const uniqueNations = Array.from(nationsSet)
